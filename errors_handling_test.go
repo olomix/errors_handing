@@ -20,3 +20,12 @@ func TestOne(t *testing.T) {
 		log.Printf("database error with code %v: %+v", err2.Code, err)
 	}
 }
+
+func one() error {
+	return errors.New("error number one")
+}
+
+func TestDoubleWrappedErrors(t *testing.T) {
+	err := errors.WithStack(one())
+	log.Printf("%+v", err)
+}
