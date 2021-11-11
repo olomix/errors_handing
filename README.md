@@ -180,7 +180,7 @@ func handleStats(w http.ResponseWriter, r *http.Request) {
 		// здеcь какую-то общую фразу server error, чтоб не экспоузить какие-то
 		// кишки приложения наружу. Или держать набор возможных ошибок для
 		// клиента с разными текстами.
-		http.Error(w, err.Error(), http.StatusBadRequest)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
